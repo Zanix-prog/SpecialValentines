@@ -29,4 +29,4 @@ The project includes a GitHub Action in `.github/workflows/deploy.yml`.
 Simply open `index.html` in your browser. No server required!
 
 ---
-Made with ❤️ by Vikas
+Made with ❤️ by Chimpanzee
