@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shifa 💖</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- AUDIO -->
+    <audio id="audio1" loop>
+        <source src="audio1.mp3" type="audio/mpeg">
+        <source src="audio1.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="audio2" loop>
+        <source src="audio1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- PASSWORD LAYER -->
+    <style>
+        .layer {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+        }
+
+        #layer-password {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .password-container {
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 40px rgba(255, 80, 120, 0.25);
+        }
+
+        .center-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lock-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hint {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .love-input {
+            text-align: center;
+            font-size: 1.3rem;
+            padding: 14px 18px;
+            border-radius: 14px;
+            border: none;
+            outline: none;
+            width: 260px;
+            color: white;
+            background: linear-gradient(135deg, #ff4d6d, #ff758f, #ff8fa3);
+            box-shadow: 0 0 15px rgba(255, 100, 150, 0.6),
+                inset 0 0 10px rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .love-input::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .love-input:focus {
+            background: linear-gradient(135deg, #ff4d6d, #ff758f, #ff8fa3);
+            color: white;
+            caret-color: white;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 100, 150, 0.9),
+                0 0 40px rgba(255, 150, 200, 0.6);
+        }
+
+        .love-btn {
+            padding: 12px 24px;
+            border-radius: 20px;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            background: linear-gradient(135deg, #ff4d6d, #ff8fa3);
+            color: white;
+            box-shadow: 0 0 15px rgba(255, 100, 150, 0.6);
+            transition: 0.3s;
+        }
+
+        .love-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 100, 150, 1);
+        }
+    </style>
+
+    <div id="layer-password" class="layer active-layer">
+        <div class="password-container">
+            <div class="lock-icon">🔒❤️</div>
+            <h1>Unlock My Heart</h1>
+
+            <div class="input-group center-box">
+                <p class="hint">Guess when we met first ❤️</p>
+
+                <input type="text" id="pass1" class="love-input" placeholder="dd/mm/yyyy ❤️">
+
+                <button id="unlockBtn" class="love-btn">Unveil ❤️</button>
+
+                <p id="errorMsg" class="error hidden">
+                    Not quite right, try again! 😜
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROPOSAL LAYER -->
+    <div id="layer-proposal" class="layer hidden">
+        <div id="scatter-container"></div>
+
+        <div class="panel">
+            <h1>Shifa 💖💖</h1>
+
+            <p id="proposal-text">
+                Will you be my Valentine?<br>– Talib
+            </p>
+
+            <div class="buttons">
+                <button id="yesBtn" onclick="document.getElementById('audio1').play()">YES 💖</button>
+                <button id="noBtn" onclick="document.getElementById('audio1').play()">NO 😝</button>
+            </div>
+
+            <p id="noMsg"></p>
+        </div>
+    </div>
+
+    <!-- CONTRACT -->
+    <div id="layer-contract" class="layer hidden">
+        <div class="panel contract-panel">
+            <h1>📜 Relationship Contract 📜</h1>
+
+            <p>
+                5 months doneeee — the best months of my life 💕<br>
+                Love youuu Shifa ❤️<br>
+                You are booked for Valentine's Day for the next 97 years and 7 months😊!
+            </p>
+
+            <p class="contract-terms">
+                * This contract is non-negotiable and non-withdrawable.<br>
+                * Perks: Infinite love 💕, Kisses 💋, Fun and TALIB <br>
+                * Signed with love, Talib.
+            </p>
+
+            <div class="kiss-mark">💋</div>
+
+            <div class="contract-pic">
+                <img src="photo_contract.jpg" alt="Us"
+                    onerror="this.onerror=null; this.src='photo1.jpg';">
+            </div>
+
+            <button id="startQuizBtn">Take the Love Quiz! ➡️</button>
+        </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div id="layer-quiz" class="layer hidden">
+        <div class="panel quiz-panel">
+            <h2>💑 The Us Quiz 💑</h2>
+
+            <div id="quiz-container">
+                <p id="question-text">Question goes here...</p>
+                <div id="options-container"></div>
+                <p id="roast-message" class="roast-message"></p>
+            </div>
+
+            <p id="quiz-progress">1 / 10</p>
+        </div>
+    </div>
+
+    <!-- FINALE -->
+    <div id="layer-finale" class="layer hidden">
+        <div class="finale-panel">
+            <h1>💖 Love Score: 10/10 💖</h1>
+
+            <div class="heart-beat" style="font-size:5rem;margin:20px 0;">
+                ❤️
+            </div>
+
+            <p class="final-message" style="font-size:1.3rem;">
+                It's never just "You" or "Me".<br>
+                It's <b>US FOREVER</b>.
+            </p>
+
+            <div style="margin-top:20px;">
+                <p style="font-size:1rem;color:#ff3366;">
+                    Our Forever Starts In:
+                </p>
+
+                <div id="final-timer"
+                    style="font-size:4rem;font-weight:bold;color:#ff3366;">
+                    10
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDESHOW -->
+    <div id="layer-slideshow" class="layer hidden">
+        <div class="slideshow-wrapper">
+            <img id="final-slideshow-img" src="" alt="Memories">
+            <p class="final-caption">US FOREVER ❤️</p>
+        </div>
+    </div>
+
+    <div id="red-flash" class="flash-overlay hidden"></div>
+
+    <div id="lightbox" class="lightbox hidden">
+        <span id="close-lightbox" class="close-lightbox">&times;</span>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="Photo">
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

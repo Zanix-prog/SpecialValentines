@@ -1,0 +1,12 @@
+{
+  "name": "valentine-app",
+  "version": "1.0.0",
+  "description": "A beautiful Valentine's Day web app.",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": [],
+  "author": "Vikas",
+  "license": "MIT"
+}
